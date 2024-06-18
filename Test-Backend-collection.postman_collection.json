@@ -1,0 +1,339 @@
+{
+	"info": {
+		"_postman_id": "e216151b-9604-42b3-aab2-1777035fcc8d",
+		"name": "Test-Backend-collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26704015"
+	},
+	"item": [
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Create Product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Product 6\",\n    \"mainPrice\": 200,\n    \"discountedPrice\": 185,\n    \"imageUrl\": \"https://media.istockphoto.com/id/1390233984/photo/modern-luxury-bedroom.jpg?s=612x612&w=0&k=20&c=po91poqYoQTbHUpO1LD1HcxCFZVpRG-loAMWZT7YRe4=\",\n    \"description\": \"test data\",\n    \"productDetails\": {\n        \"size\": \"large\",\n        \"storage Capacity\": \"Yes\"\n    },\n    \"productStart\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Product List",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"test\",\n    \"description\": \"testing\",\n    \"priority\": \"High\",\n    \"startDate\": \"2024-06-12T10:10:05.451Z\",\n    \"endDate\": \"2024-06-14T10:10:05.451Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/products?page=1&limit=3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"products"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product By Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"test\",\n    \"description\": \"testing\",\n    \"priority\": \"High\",\n    \"startDate\": \"2024-06-12T10:10:05.451Z\",\n    \"endDate\": \"2024-06-14T10:10:05.451Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/products/66710d223de34e1df00fad4f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"products",
+								"66710d223de34e1df00fad4f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product By Id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/home/hiren/Downloads/employee-database-template.xlsx"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/products/66710e1ccc036341fec4ed4f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"products",
+								"66710e1ccc036341fec4ed4f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product Details By Id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"mainPrice\": 200,\n    \"discountedPrice\": 100\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/products/66710e71b7eff9249cc23c8d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"products",
+								"66710e71b7eff9249cc23c8d"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Combo Offer",
+			"item": [
+				{
+					"name": "Create Order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"productIds\": [\n        \"667108779d01b549b5f967a1\",\n        \"667108779d01b549b5f967a2\"\n    ],\n    \"comboPrice\": 200\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/comboProducts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"comboProducts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Combo Offer List",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"test\",\n    \"description\": \"testing\",\n    \"priority\": \"High\",\n    \"startDate\": \"2024-06-12T10:10:05.451Z\",\n    \"endDate\": \"2024-06-14T10:10:05.451Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/comboProducts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"comboProducts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Combo Offer By Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"test\",\n    \"description\": \"testing\",\n    \"priority\": \"High\",\n    \"startDate\": \"2024-06-12T10:10:05.451Z\",\n    \"endDate\": \"2024-06-14T10:10:05.451Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/comboProducts/66710e9db64f9987ddb52fbd",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"comboProducts",
+								"66710e9db64f9987ddb52fbd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Order By Id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/home/hiren/Downloads/employee-database-template.xlsx"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:4000/order/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"order",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Order Details",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"productIds\": [\n        \"667108779d01b549b5f967a1\",\n        \"667108779d01b549b5f967a2\"\n    ],\n    \"comboPrice\": 200\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/comboProducts/66710e9db64f9987ddb52fbd",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"comboProducts",
+								"66710e9db64f9987ddb52fbd"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
